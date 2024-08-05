@@ -19,16 +19,16 @@ def bet(amount):
     while True:
        try:
             global bet_amount
-            bet_amount = int(input(f'you have {amount}. how much to bet: '))
+            bet_amount = int(input(f'You have {amount}. How much do you want to bet: '))
             if 1 <= bet_amount <= amount:
                 return bet_amount
             else:
                 print('enter bet in range')
        except ValueError:
-           print('enter a number')
+           print('Enter a number')
 def slot(amount):
 
-    dec = input('you want to play: ').lower()
+    dec = input('Do you want to play: ').lower()
 
     match dec:
         case 'yes':
@@ -47,10 +47,10 @@ def slot(amount):
             logic(slot1, slot2, slot3, slot4, slot5, amount,slots)
 
         case 'no':
-            print('thanks for playing')
+            print('Thanks for playing!')
 
         case _:
-            print('put in yes or no')
+            print('Put in yes or no')
             slot(amount)
 def logic(slot1, slot2, slot3, slot4, slot5, amount, slots):
     winner = len(slots)

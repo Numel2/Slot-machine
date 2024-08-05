@@ -53,36 +53,35 @@ def slot(amount):
             print('put in yes or no')
             slot(amount)
 def logic(slot1, slot2, slot3, slot4, slot5, amount, slots):
+    winner = len(slots)
+    match winner:
 
-    if len(slots) == 1:
-        print('big win')
-        amount = amount + bet_amount * 5
-        print(f'you won {bet_amount}, your total is {amount}')
-        slot(amount)
-
-    elif len(slots) == 2:
-        print('medium win')
-        amount = amount + bet_amount * 3
-        print(f'you won {bet_amount}, your total is {amount}')
-        slot(amount)
-
-    elif len(slots) == 3:
-        print('small win')
-        amount = amount + bet_amount * 1
-        print(f'you won {bet_amount}, your total is {amount}')
-        slot(amount)
-
-    else:
-        print('lose')
-        if bet_amount >= amount:
-            print('you have no money you lose')
-        else:
-            amount = amount - bet_amount
-            print(f'you have {amount}')
+        case 1:
+            print('big win')
+            amount = amount + bet_amount * 5
+            print(f'you won {bet_amount}, your total is {amount}')
             slot(amount)
 
+        case 2:
+            print('medium win')
+            amount = amount + bet_amount * 3
+            print(f'you won {bet_amount * 3}, your total is {amount}')
+            slot(amount)
 
+        case 3:
+            print('small win')
+            amount = amount + bet_amount * 1
+            print(f'you won {bet_amount}, your total is {amount}')
+            slot(amount)
 
+        case _:
+            print('lose')
+            if bet_amount >= amount:
+                print('you have no money you lose')
+            else:
+                amount = amount - bet_amount
+                print(f'you have {amount}')
+                slot(amount)
 
 if __name__ == '__main__':
     start()

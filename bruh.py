@@ -3,6 +3,7 @@ import time
 
 num = ['💀', '😊', '🗣️', '🔥', '‼️']
 
+
 def start():
     try:
         amount = int(input('how much to put in balance: '))
@@ -15,19 +16,20 @@ def start():
         print('put in a number')
         start()
 
+
 def bet(amount):
     while True:
-       try:
-            global bet_amount
+        try:
             bet_amount = int(input(f'You have {amount}. How much do you want to bet: '))
             if 1 <= bet_amount <= amount:
                 return bet_amount
             else:
                 print('enter bet in range')
-       except ValueError:
-           print('Enter a number')
-def slot(amount):
+        except ValueError:
+            print('Enter a number')
 
+
+def slot(amount):
     dec = input('Do you want to play: ').lower()
 
     match dec:
@@ -39,12 +41,12 @@ def slot(amount):
             slot4 = random.choice(num)
             slot5 = random.choice(num)
             slots = {slot1, slot2, slot3, slot4, slot5}
-            print(slot1, end=" "); time.sleep(0.25)
-            print(slot2, end=" "); time.sleep(0.5)
-            print(slot3, end=" "); time.sleep(1)
-            print(slot4, end=" "); time.sleep(2)
-            print(slot5); time.sleep(1)
-            logic(slot1, slot2, slot3, slot4, slot5, amount,slots)
+            print(slot1, end=" ") ; time.sleep(0.25)
+            print(slot2, end=" ") ; time.sleep(0.5)
+            print(slot3, end=" ") ; time.sleep(1)
+            print(slot4, end=" ") ; time.sleep(2)
+            print(slot5) ; time.sleep(1)
+            logic(slot1, slot2, slot3, slot4, slot5, amount, slots)
 
         case 'no':
             print('Thanks for playing!')
@@ -52,6 +54,8 @@ def slot(amount):
         case _:
             print('Put in yes or no')
             slot(amount)
+
+
 def logic(slot1, slot2, slot3, slot4, slot5, amount, slots):
     winner = len(slots)
     match winner:
@@ -83,8 +87,6 @@ def logic(slot1, slot2, slot3, slot4, slot5, amount, slots):
                 print(f'you have {amount}')
                 slot(amount)
 
+
 if __name__ == '__main__':
     start()
-
-
-

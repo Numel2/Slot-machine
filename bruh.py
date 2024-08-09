@@ -20,6 +20,7 @@ def start():
 def bet(amount):
     while True:
         try:
+            global bet_amount
             bet_amount = int(input(f'You have {amount}. How much do you want to bet: '))
             if 1 <= bet_amount <= amount:
                 return bet_amount
@@ -40,13 +41,12 @@ def slot(amount):
             slot3 = random.choice(num)
             slot4 = random.choice(num)
             slot5 = random.choice(num)
-            slots = {slot1, slot2, slot3, slot4, slot5}
             print(slot1, end=" ") ; time.sleep(0.25)
             print(slot2, end=" ") ; time.sleep(0.5)
             print(slot3, end=" ") ; time.sleep(1)
             print(slot4, end=" ") ; time.sleep(2)
             print(slot5) ; time.sleep(1)
-            logic(slot1, slot2, slot3, slot4, slot5, amount, slots)
+            logic(slot1, slot2, slot3, slot4, slot5, amount)
 
         case 'no':
             print('Thanks for playing!')
@@ -56,7 +56,8 @@ def slot(amount):
             slot(amount)
 
 
-def logic(slot1, slot2, slot3, slot4, slot5, amount, slots):
+def logic(slot1, slot2, slot3, slot4, slot5, amount):
+    slots = {slot1, slot2, slot3, slot4, slot5}
     winner = len(slots)
     match winner:
 

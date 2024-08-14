@@ -32,6 +32,10 @@ def bet(amount):
 
 def slot(amount):
     dec = input('Do you want to play: ').lower()
+    roll(dec, amount)
+
+
+def roll(dec, amount):
     timer = 0.5
 
     match dec:
@@ -42,10 +46,11 @@ def slot(amount):
             slot3 = random.choice(num)
             slot4 = random.choice(num)
             slot5 = random.choice(num)
-            for i in range(5):
+            for i in range(4):
                 time.sleep(timer)
                 print(' '.join(num[i]), end=" ")
                 timer += 0.5
+            print(slot5)
             logic(slot1, slot2, slot3, slot4, slot5, amount)
 
         case 'no':

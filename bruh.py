@@ -4,6 +4,7 @@ import time
 num = ['💀', '😊', '🗣️', '🔥', '‼️']
 
 
+# start the program with balance, calls slot
 def start():
     try:
         amount = int(input('how much to put in balance: '))
@@ -17,6 +18,7 @@ def start():
         start()
 
 
+# asks for the amount to bet
 def bet(amount):
     while True:
         try:
@@ -30,14 +32,14 @@ def bet(amount):
             print('Enter a number')
 
 
+# ask if player wants to play, calls roll
 def slot(amount):
     dec = input('Do you want to play: ').lower()
     roll(dec, amount)
 
 
+# generates random slots, calls print_slot or slot
 def roll(dec, amount):
-    timer = 0.5
-
     match dec:
         case 'yes':
             bet(amount)
@@ -47,10 +49,7 @@ def roll(dec, amount):
             slot4 = random.choice(num)
             slot5 = random.choice(num)
             rand_num = [slot1, slot2, slot3, slot4, slot5]
-            for i in rand_num:
-                print(i, end=' ')
-            print()
-            logic(slot1, slot2, slot3, slot4, slot5, amount)
+            print_slot(rand_num, amount)
 
         case 'no':
             print('Thanks for playing!')
@@ -59,9 +58,20 @@ def roll(dec, amount):
             print('Put in yes or no')
             slot(amount)
 
+# prints the slots, calls logic
+def print_slot(rand_num, amount):
+    sleep_time = 0.5
+    for i in rand_num:
+        time.sleep(sleep_time)
+        print(i, end=' ')
+        sleep_time += 0.5
+    print()
+    logic(rand_num, amount)
 
-def logic(slot1, slot2, slot3, slot4, slot5, amount):
-    slots = {slot1, slot2, slot3, slot4, slot5}
+
+# logic for  slots and prints how much won, calls slot
+def logic(rand_num, amount):
+    slots = set(rand_num)
     winner = len(slots)
     match winner:
 

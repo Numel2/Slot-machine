@@ -58,6 +58,7 @@ def roll(dec, amount):
             print('Put in yes or no')
             slot(amount)
 
+
 # prints the slots, calls logic
 def print_slot(rand_num, amount):
     sleep_time = 0.5

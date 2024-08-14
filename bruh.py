@@ -46,11 +46,10 @@ def roll(dec, amount):
             slot3 = random.choice(num)
             slot4 = random.choice(num)
             slot5 = random.choice(num)
-            for i in range(4):
-                time.sleep(timer)
-                print(' '.join(num[i]), end=" ")
-                timer += 0.5
-            print(slot5)
+            rand_num = [slot1, slot2, slot3, slot4, slot5]
+            for i in rand_num:
+                print(i, end=' ')
+            print()
             logic(slot1, slot2, slot3, slot4, slot5, amount)
 
         case 'no':
